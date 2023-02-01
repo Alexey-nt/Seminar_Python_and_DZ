@@ -51,11 +51,11 @@ else:
 # Input:    6 -> -20 30 -40 50 10 -10 
 # Output: 2
 '''
-n = int(input('type N, where 1 <= N <= 100: '))
+n = int(input('Введите кол-во дней от 1 до 100: '))
 sum_pos = 0
 sum_max = 0
 for i in range(1, n + 1):
-    temperature = int(input('type temperature where min value -50, max value 50: '))
+    temperature = int(input('Введите температуру, где min значение -50, max значение 50: '))
     if temperature > 0:
         sum_pos += 1
         
