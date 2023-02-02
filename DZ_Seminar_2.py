@@ -39,26 +39,28 @@ print(f'Минимальное кол-во для переворачивания
 
 # S=4 P=4 -> x=2 y=2
 # S=5 P=6 -> x=2 y=3 
-
+'''
+import math
 s = int(input('Введите число, обозначающее сумму загаданных чисел: '))
 p = int(input('Введите число, обозначающее произведение загаданных чисел: '))
 
+x = 0
+y = 0
 
-'''
-discr = b ** 2 - 4 * a * c
-print("Дискриминант D = %.2f" % discr)
+discriminant = x ** 2 - s * x * p
+print("Дискриминант D = %.2f" % discriminant)
  
-if discr > 0:
-    x1 = (-b + math.sqrt(discr)) / (2 * a)
-    x2 = (-b - math.sqrt(discr)) / (2 * a)
+if discriminant > 0:
+    y1 = (-x + math.sqrt(discriminant)) / (2 * x)
+    y2 = (-x - math.sqrt(discriminant)) / (2 * x)
     print("x1 = %.2f \nx2 = %.2f" % (x1, x2))
-elif discr == 0:
-    x = -b / (2 * a)
+elif discriminant == 0:
+    y = -x / (2 * x)
     print("x = %.2f" % x)
 else:
     print("Корней нет")
-'''
 
+'''
 
 
 # Задача 14: Требуется вывести все целые степени двойки 
