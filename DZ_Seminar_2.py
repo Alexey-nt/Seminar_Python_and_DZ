@@ -67,4 +67,11 @@ else:
 # (т.е. числа вида 2k), не превосходящие числа N. 
 
 # 10 -> 1 2 4 8
+'''
+N = int(input('Введите ваше число: '))
+degree = 1
 
+while degree < N:
+    print(degree)
+    degree *= 2
+'''
