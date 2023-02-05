@@ -4,14 +4,30 @@
 # - 6782 -> 23
 # - 0,56 -> 11
 
+'''umber = int(input('Введите ваше число: '))
+
+current = 1
+while number >= 10:
+    number = number / 10
+    current += 1
+print(f'Кол-во цифр равно {current}')
 
 
+count = 1
+sum = 0
+while count <= current:
+    sum = (number % 10) + sum
+    number = number % 10
+    count += 1
+print(f'Сумма цифр равна {sum}')
+'''
 
 # Напишите программу, которая принимает на вход число N и выдает набор произведений чисел от 1 до N.
 
 # Пример:
 # - пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
 
+N = int(input ('Введите число: '))
 
 
 
