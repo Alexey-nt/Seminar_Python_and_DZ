@@ -40,28 +40,13 @@ print(f'Минимальное кол-во для переворачивания
 # S=4 P=4 -> x=2 y=2
 # S=5 P=6 -> x=2 y=3 
 '''
-import math
-s = int(input('Введите число, обозначающее сумму загаданных чисел: '))
-p = int(input('Введите число, обозначающее произведение загаданных чисел: '))
-
-x = 0
-y = 0
-
-discriminant = x ** 2 - s * x * p
-print("Дискриминант D = %.2f" % discriminant)
- 
-if discriminant > 0:
-    y1 = (-x + math.sqrt(discriminant)) / (2 * x)
-    y2 = (-x - math.sqrt(discriminant)) / (2 * x)
-    print("x1 = %.2f \nx2 = %.2f" % (x1, x2))
-elif discriminant == 0:
-    y = -x / (2 * x)
-    print("x = %.2f" % x)
-else:
-    print("Корней нет")
-
+x = int(input('-'))
+y = int(input('-'))
+for i in range(x):
+    for j in range(y):
+        if x == i + j and y == i * j:
+            print(i, j)
 '''
-
 
 # Задача 14: Требуется вывести все целые степени двойки 
 # (т.е. числа вида 2k), не превосходящие числа N. 
