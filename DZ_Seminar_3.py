@@ -29,9 +29,9 @@ print(f'Число {X} встречается {count} раз.')
 # В последующих  строках записаны N целых чисел Ai . 
 # Последняя строка содержит число X 
 
-# 5 
-# 1 2 3 4 5 
-# 6-> 5
+# N = 5 
+# A = [1 2 3 4 5] 
+# X = 6-> 5
 '''
 from random import randint
 
@@ -40,33 +40,37 @@ A = [randint(0, 10) for i in range(N)]
 print(A)
 
 X  = int(input('Введите ваше число: '))
-X_min = 0
-X_max = 0
-for i in range(0, len(A)):
-    if A[0] < X:
-        X_min = A[i]
-        i += 1
-    if A[0] > X:
-        X_max = A[i]
-        i += 1
-
-print(X_min)
-print(X_max)
+A.append(X)
+list.sort(A)
+if X == A[0]:
+    print(A[1])
+elif X == A[-1]:
+    print(A[-2])
+else:
+    Y = A.index(X)
+    Y_1 = Y - 1
+    Y_2 = Y + 1
+    if X - A[Y_1] < A[Y_2] - X:
+        print(A[Y_1])
+    elif X - A[Y_1] > A[Y_2] - X:
+        print(A[Y_2])
+    else:
+        print(Y_1, Y_2)
 '''
 
 # Задача 20: В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность. 
 # В случае с английским алфавитом очки распределяются так: 
 # A, E, I, O, U, L, N, S, T, R – 1 очко; 
 # D, G – 2 очка; 
-# B, C, M, P – 3 очка; 
+# 'B', 'C', 'M', 'P' – 3 очка; 
 # F, H, V, W, Y – 4 очка; 
 # K – 5 очков; 
 # J, X – 8 очков; 
 # Q, Z – 10 очков. 
 # А русские буквы оцениваются так:
-# А, В, Е, И, Н, О, Р, С, Т – 1 очко; 
-# Д, К, Л, М, П, У – 2 очка; 
-# Б, Г, Ё, Ь, Я – 3 очка; 
+# А, 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т' – 1 очко; 
+# 'Д', 'К', 'Л', 'М', 'П', 'У' – 2 очка; 
+# 'Б', 'Г', 'Ё', 'Ь', 'Я' – 3 очка; 
 # Й, Ы – 4 очка; 
 # Ж, З, Х, Ц, Ч – 5 очков; 
 # Ш, Э, Ю – 8 очков;
@@ -79,31 +83,23 @@ print(X_max)
 # Ввод: ноутбук 
 # Вывод: 12
 '''
-import re
+alphabet = {1: {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R', 'А', 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т'},
+            2: {'D', 'G', 'Д', 'К', 'Л', 'М', 'П', 'У'},
+            3: {'B', 'C', 'M', 'P', 'Б', 'Г', 'Ё', 'Ь', 'Я'},
+            4: {'F', 'H', 'V', 'W', 'Y', 'Й', 'Ы'},
+            5: {'K', 'Ж', 'З', 'Х', 'Ц', 'Ч'},
+            8: {'J', 'X', 'Ш', 'Э', 'Ю'},
+            10: {'Q', 'Z', 'Ф', 'Щ', 'Ъ'}}
 
-word = input("Введите любое слово: ")
-word = word.upper()
+user_word = input('Введите ваше слово: ').upper()
+points = 0
+for letter in user_word:
+    for key, value in alphabet.items():
+        if letter in value:
+            points += key
+            break
 
-rus = {1:'АВЕИНОРСТ',
-      	2:'ДКЛМПУ',
-      	3:'БГЁЬЯ',
-      	4:'ЙЫ',
-      	5:'ЖЗХЦЧ',
-      	8:'ШЭЮ',
-      	10:'ФЩЪ'}
-eng = {1:'AEIOULNSTR',
-      	2:'DG',
-      	3:'BCMP',
-      	4:'FHVWY',
-      	5:'K',
-      	8:'JZ',
-      	10:'QZ'}
-
-def RusOrEng(word):
-    return bool(re.search("[а-яА-Я]", word))
-
-if RusOrEng(word):
-    print("Сумма баллов:", sum([k for i in word for k, v in rus.items() if i in v]))
-else:
-    print("Сумма баллов:", sum([k for i in word for k, v in eng.items() if i in v]))
+print(f'Стоимость вашего слова равна {points}')
 '''
+
+
