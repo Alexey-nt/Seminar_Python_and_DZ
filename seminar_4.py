@@ -5,7 +5,40 @@
 # Input: a a a b c a a d c d d 
 # Output: a a_1 a_2 b c a_3 a_4 d c_1 d_1 d_2
 
+# Решение № 1:
+'''
+s = 'a a a b c a a d c d d'
+s = s .split()
+print(s)
+result_dic = {}
+new_s = []
+for i in s:
+    if i not in result_dic:
+        new_s.append(i)
+        result_dic[i] = result_dic.get(i, 0) + 1
+    else:
+        new_s.append(f'{i}_{result_dic[i]}')
+        result_dic[i] = result_dic.get(i, 0) + 1
 
+print(*new_s)
+'''
+# Решение № 2: (правильное)
+'''
+text = 'a a a b c a a d c d d'
+text = text.split()
+result = ''
+d = {}
+for i in range(len(text)):
+    if text[i] not in d:
+        d[text[i]] = 1
+        result += f'{text[i]} '
+    else:
+        result += f'{text[i]}_{d[text[i]]} '
+        d[text[i]] += 1
+
+
+print(result)
+'''
 
 # Задача №27. Пользователь вводит текст(строка).
 # Словом считается последовательность непробельных символов идущих подряд, 
@@ -13,6 +46,8 @@
 # Определите, сколько различных слов содержится в этом тексте. 
 # Input: She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure.So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells 
 # Output: 13
+
+# Решение № 1: не корректное
 '''
 n = input("Введите свой текст: ").split()
 n = set(n)
@@ -22,6 +57,14 @@ print(n)
 for i in n:
     count +=1
 print(count)
+'''
+# Решение № 2: (правильное)
+'''
+text = "She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure.So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells"
+
+new_text = text.lower().replace(';', ' ').replace(',', ' ').replace('.', ' ')
+
+print(len(set(new_text.split())))
 '''
 
 # Задача №29. Ваня и Петя поспорили, кто быстрее решит следующую задачу: 
