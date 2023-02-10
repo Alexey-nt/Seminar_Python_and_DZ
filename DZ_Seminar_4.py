@@ -31,7 +31,24 @@ print('Числа, встречающиеся в обоих множествах
 # находясь перед некоторым кустом заданной во входном файле грядки. 
 # 4 -> 1 2 3 4 
 # 9
+'''
+from random import randint
 
+n = int(input('Введите кол-во кустов: '))
+a = [randint(0, 100) for i in range(n)]
+print(a)
 
+current = 0
+max = 0
+if n > 3:
+    for i in range(n):
+        current = a[i - 1] + a[i] + a[i - 2]
+        if current > max:
+            max = current
+else:
+    max = sum(a)
+
+print(f'Максимальное число ягод, собранное за один цикл: {max}')
+'''
 
 
