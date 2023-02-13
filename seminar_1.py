@@ -1,16 +1,16 @@
 # за день машина проезжает n километров. Сколько дней нужно, чтобы проехать маршрут длиной m километров?
 # При решении этой задачи нельзя пользоваться условной инструкцией if и циклами.
+'''
+n = int(input('Машина проезжает за день: '))
+m = int(input('Расстояние, которое проедет машина за какой-то период времени: '))
 
-#n = int(input('Машина проезжает за день: '))
-#m = int(input('Расстояние, которое проедет машина за какой-то период времени: '))
-#
-#
-#def arg(n, m):
-#    return (m+n-1)//n
-#
-#res = arg(n, m)
-#print(res)
 
+def arg(n, m):
+    return (m+n-1)//n
+
+res = arg(n, m)
+print(res)
+'''
 # Задача №3. Решение в группах
 # В некоторой школе решили набрать три новых
 # математических класса и оборудовать кабинеты для
@@ -20,26 +20,26 @@
 # число парт, которое нужно приобрести для них.
 # Input: 20 21 22(ввод чисел НЕ в одну строку)
 # Output: 32
+'''
+print('Введите количество учеников: ')
+cl1 = int(input('В 1 классе: '))
+cl2 = int(input('Во 2 классе: '))
+cl3 = int(input('В 3 классе: '))
+print(f'Наименьшее число па2рт, которое нужно приобрести = {((cl1 + cl2 + cl3) + 1) // 2}')
 
-# print('Введите количество учеников: ')
-# cl1 = int(input('В 1 классе: '))
-# cl2 = int(input('Во 2 классе: '))
-# cl3 = int(input('В 3 классе: '))
-# print(f'Наименьшее число па2рт, которое нужно приобрести = {((cl1 + cl2 + cl3) + 1) // 2}')
-# 
-# class_1 = int(input("Введите количество учеников в первом классе: "))
-# class_2 = int(input("Введите количество учеников во втором классе: "))
-# class_3 = int(input("Введите количество учеников в третьем классе: "))
-# 
-# def chetnot(klass):
-#     if klass % 2:
-#         return klass // 2 + 1
-#     else:
-#         return klass / 2
-#     
-# print(f"Парты в первом классе {chetnot(class_1)}, Парты во втором классе {chetnot(class_2)}, /Парты в третьем классе {chetnot(class_3)},")
-# print("Общее количество парт", chetnot(class_1) + chetnot(class_2) + chetnot(class_3))
+class_1 = int(input("Введите количество учеников в первом классе: "))
+class_2 = int(input("Введите количество учеников во втором классе: "))
+class_3 = int(input("Введите количество учеников в третьем классе: "))
 
+def chetnot(klass):
+    if klass % 2:
+        return klass // 2 + 1
+    else:
+        return klass / 2
+    
+print(f"Парты в первом классе {chetnot(class_1)}, Парты во втором классе {chetnot(class_2)}, /Парты в третьем классе {chetnot(class_3)},")
+print("Общее количество парт", chetnot(class_1) + chetnot(class_2) + chetnot(class_3))
+'''
 # Задача №5. Решение в группах
 # Вагоны в электричке пронумерованы натуральными
 # числами, начиная с 1 (при этом иногда вагоны
@@ -54,17 +54,17 @@
 # невозможно.
 # Input: 3 4(ввод на разных строках)
 # Output: 6
+'''
+def railway(i, j):
+    if i == j:
+        print('нехватает условий для расчета')
+    else:
+        print(f'{i + j - 1}')
 
-# def railway(i, j):
-#     if i == j:
-#         print('нехватает условий для расчета')
-#     else:
-#         print(f'{i + j - 1}')
-# 
-# i = int(input())
-# j = int(input())
-# railway(i, j)
-
+i = int(input())
+j = int(input())
+railway(i, j)
+'''
 # Задача №7. Решение в группах
 # Дано натуральное число. Требуется определить,
 # является ли год с данным номером високосным. Если
@@ -76,19 +76,19 @@
 # Input: 2016
 # Output: YES
 
+'''
+def num_input (invite_msg):
+    user_input = input(invite_msg)
+    try:
+        return(int(user_input))
+    except:
+        print("Нужно именно число!")
+        return num_input(invite_msg)
+    
+year = num_input('А какой сейчас год?\n')
 
-# def num_input (invite_msg):
-#     user_input = input(invite_msg)
-#     try:
-#         return(int(user_input))
-#     except:
-#         print("Нужно именно число!")
-#         return num_input(invite_msg)
-#     
-# year = num_input('А какой сейчас год?\n')
-# 
-# if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-#     print("YES")
-# else:
-#     print("NO")
-
+if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+    print("YES")
+else:
+    print("NO")
+'''
