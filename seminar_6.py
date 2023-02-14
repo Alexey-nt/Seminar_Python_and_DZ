@@ -16,9 +16,9 @@ print(array_1)
 print(array_2)
 
 new_array = []
-for i in range(len(array_2)):
-    if array_1[i] not in array_2[i]:
-        new_array.append(array_1[i])
+for i in array_1:
+    if i not in array_2:
+        new_array.append(i)
 
 print(new_array)
 '''
@@ -35,7 +35,7 @@ print(new_array)
 '''
 n = int(input('Введите длину массива: '))
 array = [int(input('Введите элементы массивна: ')) for _ in range(n)]
-print(array)
+print(*array)
 
 count = 0
 for i in range(1, len(array) - 1):
@@ -50,7 +50,20 @@ print(count)
 #? Ввод: 1 2 3 2 3
 #? Вывод: 2
 
+#! n = int(input('Введите длину массива: '))
+#! array = [int(input('Введите элементы массивна: ')) for _ in range(n)]
+#! print(*array)
 
+#! count = 0
+#! pair = 0
+#! for i in range(len(array)):
+#!     for i in range(len(array)):
+#!         if array[i] == array[i]:
+#!             count+=1
+#!     pair+=1
+
+#! print(count)
+#! print(pair)
 
 
 #? Задача №45. Два различных натуральных числа n и m называются дружественными, 
