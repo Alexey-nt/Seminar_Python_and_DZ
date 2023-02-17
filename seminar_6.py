@@ -22,7 +22,15 @@ for i in array_1:
 
 print(new_array)
 '''
-
+# Решение №2
+'''
+list1 = [int(input(f'Введите {i + 1}-е число: ')) for i in range(int(input('Введите количество элементов первого массива: ')))]
+list2 = [int(input(f'Введите {j + 1}-е число: ')) for j in range(int(input('Введите количество элементов второго массива: ')))]
+new_list = [el for el in list1 if not (el in list2)]
+print(*list1)
+print(*list2)
+print(*new_list)
+'''
 #? Задача №41. Дан массив, состоящий из целых чисел. Напишите программу, которая 
 #? в данном массиве определит количество элементов, у которых два соседних и, при этом, 
 #? оба соседних элемента меньше данного. Сначала вводится число N — количество элементов в массиве  
@@ -34,7 +42,7 @@ print(new_array)
 #? (каждое число вводится с новой строки)
 '''
 n = int(input('Введите длину массива: '))
-array = [int(input('Введите элементы массивна: ')) for _ in range(n)]
+array = [int(input(f'Введите {i + 1} элемент массива: ')) for i in range(n)]
 print(*array)
 
 count = 0
@@ -49,22 +57,45 @@ print(count)
 #? Вводится список чисел. Все числа списка находятся на разных строках. 
 #? Ввод: 1 2 3 2 3
 #? Вывод: 2
+'''
+n = int(input('Введите длину массива: '))
+array = [int(input('Введите элементы массивна: ')) for _ in range(n)]
+print(*array)
+array.sort()
+print(*array)
 
-#! n = int(input('Введите длину массива: '))
-#! array = [int(input('Введите элементы массивна: ')) for _ in range(n)]
-#! print(*array)
+count = 0
+for i in range(1, len(array)):
+    if array[i] == array[i - 1]:
+        count+=1
 
-#! count = 0
-#! pair = 0
-#! for i in range(len(array)):
-#!     for i in range(len(array)):
-#!         if array[i] == array[i]:
-#!             count+=1
-#!     pair+=1
+print(count)
+'''
+# Решение №2 -- поиск по элементам
+'''
+n = int(input('Введите длину массива: '))
+array = [int(input('Введите элементы массивна: ')) for _ in range(n)]
 
-#! print(count)
-#! print(pair)
+count = 0
+for i in array:
+    for j in array:
+        if i == j:
+            count += 1
 
+print((count - len(array)) // 2)
+'''
+# Решение №3 -- поиск по индексам
+'''
+arr=[1,1,1,1,1]
+n=len(arr)
+result=0
+for i in range(n-1):
+    for j in range(i+1,n):
+        if arr[i]==arr[j]:
+            result+=1
+
+print(f'{arr} \n' f'Кол-во парных элементов списка = {result}')
+'''
 
 #? Задача №45. Два различных натуральных числа n и m называются дружественными, 
 #? если сумма делителей числа n (включая 1, но исключая само n) равна числу m и наоборот. 
@@ -76,3 +107,38 @@ print(count)
 #? Каждая пара должна быть выведена только один раз (перестановка чисел новую пару не дает). 
 #? Ввод: 300
 #? Вывод: 220 284
+'''
+k = int(input('Введите число k: '))
+
+sum_dict = dict()
+for i in range(1, k + 1):
+    sum_dict[i] = 1
+    for j in range(2, (i // 2) + 1):
+        if i % j == 0:
+            sum_dict[i] += j
+
+for i in range(1, len(sum_dict) + 1):
+    for j in range(i + 1, len(sum_dict) + 1):
+        if i == sum_dict[j] and j == sum_dict[i]:
+            print(i, j)
+'''
+# Решение № 2
+'''
+def sum_divided(n):
+    div_sum = 1
+    for i in range(2, (n // 2) + 1):
+        if n % i == 0:
+            div_sum += i
+    return div_sum
+
+def friendly_pairs(x):
+    div_list = []
+    for i in range(1, x + 1):
+        y = sum_divided(i)
+        if y > i and sum_divided(y) == i:
+            div_list.append((i, y))
+    return div_list
+
+n = int(input('Введите число: '))
+print(friendly_pairs(n))
+'''
