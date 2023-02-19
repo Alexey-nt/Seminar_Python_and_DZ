@@ -9,8 +9,18 @@
 
 #? Ввод: пара-ра-рам рам-пам-папам па-ра-па-дам                                                                                        
 #? Вывод: Парам пам-пам
+'''
+verse = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
+verse_1 = verse.split()
 
-
+my_list = [sum(x in 'аеёиоуыэюя' for x in verse)
+for verse in verse_1]
+ 
+if len(set(my_list)) == 1 :
+    print('Парам пам-пам')  
+else:
+    print('Пам парам')
+'''
 
 
 #? Задача 36:  Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), 
@@ -27,7 +37,14 @@
 #?        5        10        15        20          25       30
 #?        6        12        18        24          30       36
 
+'''
+def print_operation_table(operation, num_rows, num_columns):
+    for i in range(1, num_rows + 1):
+        for j in range(1, num_columns + 1):
+            print(operation(i, j), end="\t")
+        print()
 
-
-
+operation = lambda x, y: x * y
+print_operation_table(operation, 6, 6)
+'''
 
